@@ -39,7 +39,7 @@ struct MacroProgressBar: View {
         .padding()
         .background(Color.white)
         .cornerRadius(12)
-        .shadow(radius: 1)
+        //.shadow(radius: 1)
     }
 }
 

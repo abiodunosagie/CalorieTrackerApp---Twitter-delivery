@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CalorieMessageView: View {
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading) {
             HStack(spacing: 6) {
                 Image(systemName: "bolt.circle.fill")
                     .foregroundColor(.teal)
@@ -34,8 +34,8 @@ struct CalorieMessageView: View {
             .padding(.bottom, 10)
 
             Text("Have fun eating\nthe rest ")
-                .font(.system(size: 30, weight: .bold))
-                .foregroundStyle(.gray) +
+                .font(.system(size: 30, weight: .semibold))
+                .foregroundStyle(.gray.opacity(0.8)) +
             Text("200 calories")
                 .font(.system(size: 30))
                 .bold()

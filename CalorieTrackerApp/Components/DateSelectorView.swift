@@ -17,6 +17,7 @@ struct DateSelectorView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
                     ForEach(0..<dates.count, id: \.self) { index in
+                        // LIMIT the GeometryReader height
                         GeometryReader { geo in
                             let distance = abs(selectedIndex - index)
                             let opacity = max(1.0 - Double(distance) * 0.3, 0.2)
@@ -51,7 +52,6 @@ struct DateSelectorView: View {
                                     )
                             )
                             .opacity(opacity)
-                            .animation(.easeInOut(duration: 0.3), value: selectedIndex)
                             .onTapGesture {
                                 withAnimation(.easeInOut) {
                                     selectedIndex = index
@@ -59,15 +59,17 @@ struct DateSelectorView: View {
                                 }
                             }
                         }
-                        .frame(width: index == selectedIndex ? 100 : 60)
-                        .id(index) // 👈 VERY IMPORTANT for ScrollViewReader
+                        .frame(width: index == selectedIndex ? 100 : 60, height: 80) // ✅ Height constrained here
+                        .id(index)
                     }
                 }
-               
+                .padding(.horizontal)
             }
         }
+        .frame(height: 70) // ✅ This keeps the whole view from expanding vertically
     }
 }
+
 
 
 
