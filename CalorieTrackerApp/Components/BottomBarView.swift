@@ -48,7 +48,7 @@ struct BottomBarView: View {
             Spacer()
                 .frame(width: 30)
 
-            Button(action: {}) {
+            NavigationLink(destination: ArabView()) {
                 ZStack {
                     Circle()
                         .fill(Color.black)
