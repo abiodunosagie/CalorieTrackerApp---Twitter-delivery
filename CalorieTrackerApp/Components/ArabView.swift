@@ -14,17 +14,13 @@ struct ArabView: View {
     
     // Calculate half of the screen height
     let halfScreenHeight = UIScreen.main.bounds.height * 0.7
+    let halfScreenHeightV = UIScreen.main.bounds.height * 0.3
     // MARK: - BODY
     var body: some View {
         ZStack {
             // Image slider
             VStack {
                 ZStack(alignment: .top) {
-//                    Image("arab1")
-//                        .resizable()
-//                        .scaledToFill()
-//                        .clipped()
-//                        .ignoresSafeArea()
                     TabView {
                         ForEach(images, id: \.self) { imageName in
                             Image(imageName)
@@ -35,14 +31,11 @@ struct ArabView: View {
                         }
                         
                     }
-                    .frame(height: halfScreenHeight)
+                    
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
                     .indexViewStyle(
                         PageIndexViewStyle(backgroundDisplayMode: .never))
                     .ignoresSafeArea()
-                    
-                    
-                    
                     HStack{
                         // Tags
                         HStack(spacing: 8) {
@@ -54,11 +47,11 @@ struct ArabView: View {
                             RatingView(rating: 4.8)
                         }
                     }//: chips at the top
-                    .padding(.horizontal, 25)
+                    .padding(.horizontal, 20)
                     
                 }//: Image ZStack
-                Spacer()
-                    
+                
+                .frame(maxHeight: halfScreenHeight)
                 VStack {
                     HStack(alignment: .top, spacing: 0) {
                         VStack(alignment: .leading, spacing: 0) {
@@ -118,7 +111,7 @@ struct ArabView: View {
                     }
                 }
                 .padding(.horizontal, 20)
-                .padding(.bottom, 20)
+                .frame(maxHeight: halfScreenHeightV)
                
             }
                
